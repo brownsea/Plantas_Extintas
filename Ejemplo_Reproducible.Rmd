@@ -1,0 +1,28 @@
+---
+title: "Exploracion plantas extintas"
+author: "HL"
+date: "3/11/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+library(tidyverse)
+library(kableExtra)
+```
+
+## Introduccion
+### De donde vienen los datos
+
+Estos datos sobre plantas extintas son datos de la **IUCN**, y se obtuvieron del [siguiente repositorio de Github](https://github.com/rfordatascience/tidytuesday/)
+
+```{r, echo=FALSE}
+plants <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-08-18/plants.csv')
+actions <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-08-18/actions.csv')
+threats <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-08-18/threats.csv')
+```
+
+## Datos de Sudamérica
+
+El numero de especies que hay en sudamerica en la base de datos es de `r plants %>% filter(continent== "South America") %>% nrow()` especies.
+
